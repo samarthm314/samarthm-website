@@ -1,5 +1,7 @@
 import { browser } from '$app/environment';
 import { QueryClient } from '@tanstack/svelte-query';
+import { dev } from '$app/environment';
+import { inject } from '@vercel/analytics';
 
 export const load = async () => {
 	const queryClient = new QueryClient({
@@ -14,3 +16,5 @@ export const load = async () => {
 
 	return { queryClient };
 };
+
+inject({ mode: dev ? 'development' : 'production' });
