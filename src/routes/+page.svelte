@@ -302,31 +302,9 @@
 
 <!-- Footer -->
 <footer class="w-full border-t-2 p-4">
-	<div class="container flex justify-between max-w-screen-2xl items-center text-muted-foreground">
-		<div>
-			Built & designed with 💙 by <a
-				href="https://github.com/songlim327"
-				class="underline font-medium hover:text-foreground hover:cursor-none">songlim327</a
-			>
-		</div>
-		<div class="flex gap-4">
-			<div class="flex gap-1 items-center hover:underline hover:text-foreground"></div>
-			<Tooltip.Root>
-				<Tooltip.Trigger
-					class="flex gap-1 items-center hover:underline hover:text-foreground hover:cursor-none"
-				>
-					<Star class="h-4 w-4" />Star
-				</Tooltip.Trigger>
-				<Tooltip.Content>Star on Github</Tooltip.Content>
-			</Tooltip.Root>
-			<Tooltip.Root>
-				<Tooltip.Trigger
-					class="flex gap-1 items-center hover:underline hover:text-foreground hover:cursor-none"
-				>
-					<GitFork class="h-4 w-4" />Fork
-				</Tooltip.Trigger>
-				<Tooltip.Content>Fork on Github</Tooltip.Content>
-			</Tooltip.Root>
-		</div>
+	<div class="container mx-auto flex justify-center items-center">
+		<p class="text-center text-sm text-stone-800 dark:text-stone-300">
+			Built with SvelteKit | Hosted on Vercel
+		</p>
 	</div>
 </footer>
