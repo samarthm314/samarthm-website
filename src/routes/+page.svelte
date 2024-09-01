@@ -16,9 +16,9 @@
 	import { LightballCursor } from '$lib/components/mirror/lightballcursor';
 	import { Facebook, Twitter, Linkedin, Stackoverflow, Github } from '$lib/components/mirror/icons';
 	import FarmImg from '$lib/assets/farm.webp';
-	import { PUBLIC_GA4 } from '$env/static/public';
+	// import { PUBLIC_GA4 } from '$env/static/public';
 
-	const { profilePicture, name, description, github, email, resume } = config;
+	const { profilePicture, name, description, github, email, resume, skills } = config;
 
 	type iconType = typeof Facebook | typeof Mail;
 	const socialMap: Record<string, iconType> = {
@@ -83,7 +83,7 @@
             function gtag() { dataLayer.push(arguments); }
             gtag('js', new Date());
 
-            gtag('config', '${PUBLIC_GA4}');
+            
         `;
 
 		document.head.appendChild(script);
@@ -106,7 +106,7 @@
 	<meta name="twitter:image" content={`${$page.url.toString()}favicon.png`} />
 
 	<!-- Google tag (gtag.js) -->
-	<script async src={`https://www.googletagmanager.com/gtag/js?id=${PUBLIC_GA4}`}></script>
+	<!-- <script async src={`https://www.googletagmanager.com/gtag/js?id=${PUBLIC_GA4}`}></script> -->
 
 	<title>{name}</title>
 	<meta name="description" content={description} />
@@ -245,7 +245,7 @@
 					{:else if $qUser.isSuccess && $qRepos.isSuccess}
 						<Typing
 							content={[
-								`const geek = {<br>&emsp;name: "${$qUser.data.name}", <br>&emsp;company: "${$qUser.data.company}", <br>&emsp;location: "${$qUser.data.location}", <br>&emsp;email: "${email}", <br>&emsp;repositories: ${$qUser.data.public_repos}, <br>&emsp;gists: ${$qUser.data.public_gists}, <br>&emsp;followers: ${$qUser.data.followers}, <br>&emsp;following: ${$qUser.data.following}, <br>&emsp;skills: [${$qRepos.data.topLangs}], <br>&emsp;openToWork: ${$qUser.data.hireable}, <br> }`
+								`const geek = {<br>&emsp;name: "${$qUser.data.name}", <br>&emsp;company: "${$qUser.data.company}", <br>&emsp;location: "${$qUser.data.location}", <br>&emsp;email: "${email}", <br>&emsp;repositories: ${$qUser.data.public_repos}, <br>&emsp;gists: ${$qUser.data.public_gists}, <br>&emsp;followers: ${$qUser.data.followers}, <br>&emsp;following: ${$qUser.data.following}, <br>&emsp;skills: [${skills}], <br>&emsp;openToWork: ${$qUser.data.hireable}, <br> }`
 							]}
 						></Typing>
 					{/if}
